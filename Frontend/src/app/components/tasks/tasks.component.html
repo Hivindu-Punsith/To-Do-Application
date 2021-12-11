@@ -1,0 +1,39 @@
+<input class="form-control me-2" type="search" [(ngModel)]="task" 
+(input)="Search()" placeholder="Search By Task">
+
+<br/>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-primary" type="button" routerLink="add">Add Task</button>
+  </div>
+  <hr/>
+  <br/>
+  <br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Task</th>
+            <th scope="col">Description</th>
+            <th scope="col">Location</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <th scope="row">{{task.id}}</th>
+            <td>{{task.date}}</td>
+            <td>{{task.time}}</td>
+            <td>{{task.task}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.location}}</td>
+            <td> 
+               <button class="btn btn-danger btn-sm" (click)="deleteData(task.id)">Delete</button> 
+<br/><br/>
+               <button class="btn btn-warning btn-sm mx-2" routerLink="edit/{{task.id}}">Edit</button> 
+
+            </td>
+        </tr>
+    </tbody>
+</table>
